@@ -2,13 +2,13 @@
   {
     "id": "1",
     "serial": "1322LZ05E568",
-    "vendor_id": "1133",
-    "product_id": "49740"
+    "vendor_id": 1133,
+    "product_id": 49740
   },
   {
     "id": "2",
     "serial": "1322LZ05DS68",
-    "vendor_id": "1133",
-    "product_id": "49740"
+    "vendor_id": 1133,
+    "product_id": 49740
   }
 ]

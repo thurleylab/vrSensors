@@ -20,16 +20,14 @@ class TestMouse(unittest.TestCase):
     def test_list_connected(self):
         mice = Mouse.list_connected()
 
-        assert len(mice) >= len(self.devices)
+        assert len(mice) > 0
 
-        for dev in self.devices:
-            mice = Mouse.list_connected(vendor_id=dev['vendor_id'], product_id=dev['product_id'])
+        for mouse in mice:
+            l1 = Mouse.list_connected(idVendor=mouse.usb_device.idVendor, idProduct=mouse.usb_device.idProduct)
 
-            assert len(mice) > 0
-
-            mouse = mice[0]
-            assert mouse.usb_device.idVendor == dev['vendor_id']
-            assert mouse.usb_device.idProduct == dev['product_id']
+            assert len(l1) > 0
+            assert mouse.usb_device.idVendor == l1[0].usb_device.idVendor
+            assert mouse.usb_device.idProduct == l1[0].usb_device.idProduct
 
     def test_read_report(self):
         m1 = Mouse.list_connected()[0]
